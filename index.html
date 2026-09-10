@@ -1,1 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arthy van Gastel — Projects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #14171a;
+    --bg-panel: #1a1e22;
+    --grid-line: rgba(255,255,255,0.055);
+    --text-primary: #ecedef;
+    --text-secondary: #98a2ad;
+    --text-tertiary: #62696f;
+    --accent: #5b8def;
+    --accent-dim: #3d5f8f;
+    --amber: #d8a657;
+    --border: #2a2f35;
+  }
 
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background:
+      linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 100% 44px,
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 44px 100%,
+      var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .frame {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 32px;
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(20,23,26,0.4), rgba(20,23,26,0.85) 120px, var(--bg) 320px);
+  }
+
+  header {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .kicker {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: clamp(34px, 6vw, 50px);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    max-width: 11ch;
+  }
+
+  .tagline {
+    margin-top: 20px;
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 46ch;
+  }
+
+  nav {
+    margin-top: 36px;
+    display: flex;
+    gap: 28px;
+  }
+
+  nav a {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 3px;
+    margin-right: 28px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  nav a:last-child { margin-right: 0; }
+
+  nav a:hover, nav a:focus-visible {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  section { padding: 64px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    color: var(--text-tertiary);
+    margin-bottom: 14px;
+  }
+
+  #about p {
+    max-width: 60ch;
+    color: var(--text-secondary);
+    font-size: 16.5px;
+  }
+
+  #about p + p { margin-top: 16px; }
+
+  .project {
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .project:first-of-type { border-top: none; padding-top: 0; }
+
+  .project-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .project-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: -0.01em;
+  }
+
+  .project-status {
+    font-size: 13px;
+    color: var(--amber);
+    white-space: nowrap;
+    border: 1px solid rgba(216,166,87,0.35);
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+
+  .photo {
+    margin-top: 24px;
+    aspect-ratio: 16 / 9;
+    border: 1px dashed var(--border);
+    border-radius: 4px;
+    background: var(--bg-panel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-tertiary);
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .specs {
+    margin-top: 22px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 18px 24px;
+    padding: 18px 20px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  .spec dt {
+    font-size: 12.5px;
+    color: var(--text-tertiary);
+    margin-bottom: 4px;
+  }
+
+  .spec dd {
+    font-size: 14.5px;
+    color: var(--text-primary);
+  }
+
+  .project-desc {
+    margin-top: 22px;
+    color: var(--text-secondary);
+    max-width: 62ch;
+    font-size: 16px;
+  }
+
+  footer {
+    padding: 56px 0 72px;
+  }
+
+  footer .contact-line {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 15px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2px;
+    margin-right: 24px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .links a:last-child { margin-right: 0; }
+
+  .links a:hover, .links a:focus-visible {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  @media (max-width: 640px) {
+    .frame { padding: 0 20px; border-left: none; border-right: none; }
+    header { padding: 48px 0 40px; }
+    section { padding: 44px 0; }
+    .specs { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="frame">
+
+  <header>
+    <div class="kicker">Portfolio — projects &amp; builds</div>
+    <h1>Arthy van Gastel</h1>
+    <p class="tagline">International Business student, ESEI Barcelona. I like building things by hand — from RC planes to 3D-printed designs — and I'm looking for a tech internship where I can learn something new.</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <div class="section-label">About</div>
+    <p>I'm in my final year of an International Business degree, but most of what I've actually learned about building things came from projects outside the classroom — a scratch-built RC plane, 3D-printed designs that ended up for sale, and a multiplayer game built with two friends.</p>
+    <p>I'm currently completing a Claude AI training for professionals, and I'm looking to bring that same hands-on, figure-it-out approach into a tech internship — customer-facing or behind the scenes, I'm open to either.</p>
+  </section>
+
+  <section id="projects">
+    <div class="section-label">Projects</div>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">Scratch-built RC plane</div>
+      </div>
+      <div class="photo">[ photo — replace this block with an &lt;img src="rc-plane.jpg"&gt; of the finished plane or build process ]</div>
+      <dl class="specs">
+        <div class="spec"><dt>Airframe</dt><dd>Styrofoam, balsa wood, glue</dd></div>
+        <div class="spec"><dt>Electronics</dt><dd>Motor, ESC, servos, wiring</dd></div>
+        <div class="spec"><dt>Process</dt><dd>No blueprint — trial and error</dd></div>
+        <div class="spec"><dt>Result</dt><dd>Flew for 4 minutes</dd></div>
+      </dl>
+      <p class="project-desc">Designed and built an RC plane from scratch with no blueprint or assembly kit — airframe, electronics, and wiring all put together by hand. The flaps ended up too large, which made the plane catch too much wind and become overly sensitive to control. It flew for about four minutes before that instability caused it to crash. Rebuilding it taught me more about aerodynamics and iteration than the first version ever could have.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">3D-modelled prints for a fashion brand</div>
+        <div class="project-status">Sold</div>
+      </div>
+      <div class="photo">[ photo — replace this block with an &lt;img src="prints.jpg"&gt; of the printed designs or CAD files ]</div>
+      <dl class="specs">
+        <div class="spec"><dt>Tools</dt><dd>3D modelling &amp; printing</dd></div>
+        <div class="spec"><dt>Client</dt><dd>Family fashion brand</dd></div>
+        <div class="spec"><dt>Outcome</dt><dd>Produced and sold</dd></div>
+      </dl>
+      <p class="project-desc">Used 3D modelling skills to design prints for my mother's fashion brand. The designs were produced and sold — the first time one of my technical projects turned into something with a real, paying outcome.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="project-title">Online multiplayer action game</div>
+      </div>
+      <div class="photo">[ photo — replace this block with an &lt;img src="game.jpg"&gt; or a screen recording GIF of gameplay ]</div>
+      <dl class="specs">
+        <div class="spec"><dt>Team</dt><dd>3 students</dd></div>
+        <div class="spec"><dt>Type</dt><dd>Multiplayer action game</dd></div>
+        <div class="spec"><dt>Status</dt><dd>Playable, unreleased</dd></div>
+      </dl>
+      <p class="project-desc">Co-developed an online multiplayer action game with two other students. We got as far as running our own server and playing together over it — a real working multiplayer setup — before the project was shelved and never formally published. Even unfinished, it was the first time I helped build something interactive that other people could actually play.</p>
+    </div>
+
+  </section>
+
+  <footer id="contact">
+    <div class="section-label">Contact</div>
+    <div class="contact-line">Let's talk — aisidoorvg@gmail.com</div>
+    <div class="links">
+      <a href="mailto:aisidoorvg@gmail.com">Email</a>
+      <a href="#">LinkedIn</a>
+      <a href="tel:+32470845599">+32 470 84 55 99</a>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
