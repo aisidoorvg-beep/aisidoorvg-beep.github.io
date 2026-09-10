@@ -161,6 +161,42 @@
     font-size: 14px;
     text-align: center;
     padding: 20px;
+    overflow: hidden;
+  }
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .photo-gallery {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 12px;
+  }
+
+  .photo-gallery .photo {
+    margin-top: 0;
+    aspect-ratio: auto;
+    height: 320px;
+  }
+
+  .photo-gallery--wide {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .photo-gallery--wide .photo {
+    height: 200px;
+  }
+
+  @media (max-width: 640px) {
+    .photo-gallery { grid-template-columns: 1fr; }
+    .photo-gallery .photo { height: 260px; }
+    .photo-gallery--wide { grid-template-columns: repeat(2, 1fr); }
+    .photo-gallery--wide .photo { height: 160px; }
   }
 
   .specs {
@@ -265,7 +301,12 @@
       <div class="project-head">
         <div class="project-title">Scratch-built RC plane</div>
       </div>
-      <div class="photo">[ photo — replace this block with an &lt;img src="rc-plane.jpg"&gt; of the finished plane or build process ]</div>
+      <div class="photo-gallery photo-gallery--wide">
+        <div class="photo"><img src="rc-plane-hero.jpg" alt="Arthy holding the transmitter next to the finished RC plane at a school presentation"></div>
+        <div class="photo"><img src="rc-plane-field.jpg" alt="The RC plane on the grass field before a flight"></div>
+        <div class="photo"><img src="rc-plane-motor.jpg" alt="Installing the motor into the fuselage during the build"></div>
+        <div class="photo"><img src="rc-plane-wings.jpg" alt="Wing sections and servo wiring laid out during assembly"></div>
+      </div>
       <dl class="specs">
         <div class="spec"><dt>Airframe</dt><dd>Styrofoam, balsa wood, glue</dd></div>
         <div class="spec"><dt>Electronics</dt><dd>Motor, ESC, servos, wiring</dd></div>
@@ -280,7 +321,7 @@
         <div class="project-title">3D-modelled prints for a fashion brand</div>
         <div class="project-status">Sold</div>
       </div>
-      <div class="photo">[ photo — replace this block with an &lt;img src="prints.jpg"&gt; of the printed designs or CAD files ]</div>
+      <div class="photo">[ photo — replace this block with an &lt;img src="printer.jpg"&gt; of the 3D printer or printed designs ]</div>
       <dl class="specs">
         <div class="spec"><dt>Tools</dt><dd>3D modelling &amp; printing</dd></div>
         <div class="spec"><dt>Client</dt><dd>Family fashion brand</dd></div>
@@ -293,13 +334,18 @@
       <div class="project-head">
         <div class="project-title">Online multiplayer action game</div>
       </div>
-      <div class="photo">[ photo — replace this block with an &lt;img src="game.jpg"&gt; or a screen recording GIF of gameplay ]</div>
+      <div class="photo-gallery">
+        <div class="photo"><img src="game-ship.jpg" alt="3D model of a pirate ship built for the game"></div>
+        <div class="photo"><img src="game-temple.jpg" alt="3D model of a temple structure built for the game"></div>
+        <div class="photo"><img src="game-rocket_dish.jpg" alt="3D models of a rocket and satellite dish built for the game"></div>
+        <div class="photo"><img src="game-gems.jpg" alt="3D modelled gem and potion assets built for the game"></div>
+      </div>
       <dl class="specs">
         <div class="spec"><dt>Team</dt><dd>3 students</dd></div>
         <div class="spec"><dt>Type</dt><dd>Multiplayer action game</dd></div>
         <div class="spec"><dt>Status</dt><dd>Playable, unreleased</dd></div>
       </dl>
-      <p class="project-desc">Co-developed an online multiplayer action game with two other students. We got as far as running our own server and playing together over it — a real working multiplayer setup — before the project was shelved and never formally published. Even unfinished, it was the first time I helped build something interactive that other people could actually play.</p>
+      <p class="project-desc">Co-developed an online multiplayer action game with two other students, modelling the ships, structures, environments, and items myself. We got as far as running our own server and playing together over it — a real working multiplayer setup — before the project was shelved and never formally published. Even unfinished, it was the first time I helped build something interactive that other people could actually play.</p>
     </div>
 
   </section>
